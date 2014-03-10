@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 
 public class TCPServer {
    public static void main(String[] arg) throws IOException{
-       int port=2000;
+       int port=6000;
        ServerSocket sSocket;
        try{
            sSocket=new ServerSocket(port);
@@ -13,6 +13,8 @@ public class TCPServer {
            while(true){
                new EchoServer(sSocket.accept()).start();
            }
-       }catch(IOException e){}
+       }catch(IOException e){
+           System.err.println(e);
+       }
    } 
 }
